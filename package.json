@@ -1,0 +1,30 @@
+{
+  "name": "rxredis",
+  "version": "0.0.1",
+  "description": "ioredis wrapped with rxjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acoshift/rxredis.git"
+  },
+  "keywords": [
+    "rx",
+    "rxjs",
+    "redis"
+  ],
+  "author": "Thanatat Tamtan <acoshift@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acoshift/rxredis/issues"
+  },
+  "homepage": "https://github.com/acoshift/rxredis#readme",
+  "dependencies": {
+    "rxjs": "^5.0.0-beta.2"
+  },
+  "devDependencies": {
+    "ioredis": "^1.15.1"
+  }
+}
