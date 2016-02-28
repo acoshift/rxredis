@@ -196,6 +196,7 @@ function rxredis (client) {
       return Observable
         .bindNodeCallback(exec.bind(p))()
         .map(function (xs) {
+          if (!(xs[0] instanceof Array)) return xs
           return xs.map(function (x) {
             if (x[0]) throw new Error(x[0])
             return x[1]

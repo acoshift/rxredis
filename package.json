@@ -25,6 +25,7 @@
     "rxjs": "^5.0.0-beta.2"
   },
   "devDependencies": {
-    "ioredis": "^1.15.1"
+    "ioredis": "^1.15.1",
+    "redis": "^2.4.2"
   }
 }
