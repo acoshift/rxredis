@@ -1,6 +1,15 @@
 # RxRedis
 RxJS wrapper for Redis
 
+---
+### Note
+#### ioredis
+multi and pipeline result will be map from `[[err, res], [err, res], ...]` to `[res, res, ...]`
+
+and `[err, err, ...]` will be throw if some of `err != null`
+
+---
+
 ### Example
 ```js
 'use strict'
