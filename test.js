@@ -6,7 +6,7 @@ const client = require('./index')(new Redis())
 const client2 = require('./index')(redis.createClient())
 
 client2
-  .incr('test')
+  .incr('test').do(console.log)
   .flatMap((id) => client.hmset(`test:${id}`, 'name', 'abc', 'value', Math.floor(Math.random() * 20)), (id) => id)
   .flatMap((id) => client.sadd('test:all', id), (id) => id)
   .flatMap((id) => client.hgetall(`test:${id}`))
@@ -15,7 +15,7 @@ client2
 
 client2
   .smembers('test:all')
-  .flatMap(Observable.fromArray)
+  .flatMap(Observable.from)
   .flatMap((id) => client.hgetall(`test:${id}`))
   .toArray()
   .subscribe(console.log, console.error, () => console.log('2 Completed!'))

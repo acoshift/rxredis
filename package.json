@@ -1,6 +1,6 @@
 {
   "name": "rxredis",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "RxJS wrapper for redis",
   "main": "index.js",
   "scripts": {
@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/acoshift/rxredis#readme",
   "dependencies": {
-    "rxjs": "^5.0.0-beta.2"
+    "rxjs": "^5.0.0-beta.9"
   },
   "devDependencies": {
-    "ioredis": "^1.15.1",
-    "redis": "^2.4.2"
+    "ioredis": "^2.2.0",
+    "redis": "^2.6.2"
   }
 }

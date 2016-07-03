@@ -155,6 +155,14 @@ function rxredis (client) {
     'subscribe',
     'unsubscribe',
 
+    /* Geo */
+    'geoadd',
+    'geohash',
+    'geopos',
+    'geodist',
+    'georadius',
+    'georadiusbymember',
+
     /* Scripting */
     'eval',
     'evalsha',
