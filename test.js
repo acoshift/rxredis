@@ -6,7 +6,7 @@ const client = require('./index')(new Redis())
 const client2 = require('./index')(redis.createClient())
 
 client2
-  .incr('test').do(console.log)
+  .incr('test')
   .flatMap((id) => client.hmset(`test:${id}`, 'name', 'abc', 'value', Math.floor(Math.random() * 20)), (id) => id)
   .flatMap((id) => client.sadd('test:all', id), (id) => id)
   .flatMap((id) => client.hgetall(`test:${id}`))
@@ -22,30 +22,28 @@ client2
 
 client
   .pipeline()
-  .hgetall('test:5')
-  .sismember('test:all', 5)
-  .get('test')
+  .sadd('a', 'a1')
+  .hmset('a1', 'name', 'abc', 'value', 123)
+  .hgetall('a1')
+  .sismember('a', 'a1')
   .exec()
   .map((xs) => {
-    let x = xs[0]
-    x.id = 5
-    x.isMember = xs[1]
-    x.last = xs[2]
+    let x = xs[2]
+    x.isMember = xs[3]
     return x
   })
   .subscribe(console.log, console.error, () => console.log('3 Completed!'))
 
 client2
   .multi()
-  .hgetall('test:5')
-  .sismember('test:all', 5)
-  .get('test')
+  .sadd('a', 'a2')
+  .hmset('a2', 'name', 'abc', 'value', 123)
+  .hgetall('a2')
+  .sismember('a', 'a2')
   .exec()
   .map((xs) => {
-    let x = xs[0]
-    x.id = 5
-    x.isMember = xs[1]
-    x.last = xs[2]
+    let x = xs[2]
+    x.isMember = xs[3]
     return x
   })
   .subscribe(console.log, console.error, () => console.log('4 Completed!'))

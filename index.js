@@ -16,6 +16,7 @@ function rxredis (client) {
     'ping',
     'quit',
     'select',
+    'swapdb',
 
     /* Keys */
     'del',
@@ -36,14 +37,17 @@ function rxredis (client) {
     'renamenx',
     'restore',
     'sort',
+    'touch',
     'ttl',
     'type',
+    'unlink',
     'wait',
     'scan',
 
     /* Strings */
     'append',
     'bitcount',
+    'bitfield',
     'bitop',
     'bitpos',
     'decr',
